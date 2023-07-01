@@ -16,17 +16,17 @@ export default defineConfig((opts) => ({
       const src_exp = /.*src\//;
       const ext_exp = /\.ts$/;
 
-      const exported = file.replace(src_exp, "./").replace(ext_exp, "");
+      const exported = file
+        .replace(src_exp, "./")
+        .replace(ext_exp, "")
+        .replace(/\/index$/, ""); // Strip index files
 
       const def = {
         import: file.replace(src_exp, "./dist/").replace(ext_exp, ".js"),
         types: file.replace(src_exp, "./dist/").replace(ext_exp, ".d.ts"),
       };
 
-      // Normalise index exports
-      const key = exported === "./index" ? "." : exported;
-
-      return [key, def];
+      return [exported, def];
     });
 
     const exports_value = Object.fromEntries(exports_entries);
