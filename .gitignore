@@ -1,0 +1,12 @@
+# Random files
+.DS_Store
+
+# Node modules
+node_modules
+
+# Env files
+.env
+!.env.sample
+
+# Built files
+dist

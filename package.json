@@ -1,0 +1,33 @@
+{
+  "name": "@arichardsmith/package",
+  "version": "0.1.0",
+  "description": "A new package",
+  "keywords": [],
+  "author": {
+    "name": "Richard Smith"
+  },
+  "license": "ISC",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "postinstall": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "format": "prettier --write src/"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "read-pkg": "^8.0.0",
+    "tsup": "^7.1.0",
+    "typescript": "^5.1.6",
+    "vitest": "^0.32.2",
+    "write-pkg": "^5.1.0"
+  }
+}
